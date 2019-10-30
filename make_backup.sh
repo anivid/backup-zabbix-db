@@ -75,7 +75,7 @@ ls -lh $BK_DIR >> $LOGTEMP
 echo -e "\nDiskspace usage:\n" >> $LOGTEMP
 df -h >> $LOGTEMP
 set_date
-echo -e "\n$DT Unmount SMB-catalogue" >> $LOGTEMP
+sed -i "/end_log/ s/end_log/$DT Unmount SMB-catalogue/" $LOGTEMP 2>>$LOGFILE
 cp $LOGTEMP /mnt/smbmnt/Zabbix_$DAY/LOG.log
 umount /mnt/smbmnt 2>>$LOGTEMP
 rm -rf $BK_DIR
