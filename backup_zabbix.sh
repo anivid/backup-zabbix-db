@@ -67,7 +67,7 @@ find /mnt/smbmnt/* -type f -ctime +30 -exec rm -rf {} \;  2>>$LOGTEMP
 find $BK_GLOBAL/* -type d -name "*" -empty -delete 2>>$LOGTEMP
 find /mnt/smbmnt/* -type d -name "*" -empty -delete 2>>$LOGTEMP
 set_date
-echo -e "$DT Removing complete\n" >> $LOGTEMP
+echo -e "$DT Removing complete\nend_log" >> $LOGTEMP
 cat $LOGTEMP >> $LOGFILE
 sed -i -e "1 s/^/Subject: Zabbix backup log $DAY\n\n/;" $LOGTEMP 2>>$LOGFILE
 echo -e "\nList of $BK_DIR:\n" >> $LOGTEMP
